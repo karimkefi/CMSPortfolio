@@ -13,9 +13,9 @@ if ($_SESSION['userLoggedIn']){
 }
 ?>
 
-<form method="post" action="check.php">
-    Email:<input type="text" name="formInputEmail"><br>
-    Password:<input type="text" name="formInputPswd"><br>
+<form method="post" action="checkAdmin.php">
+    User Name:<input type="text" name="InputUserName"><br>
+    Password:<input type="text" name="InputPswd"><br>
     <input type="submit" value="Submit...">
 </form>
 
