@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Select the Content Type to edit...</h1>
-    <a href="cmsArticle.php">About or Portfolio</a><br>
+    <a href="cmsEditArticle.php">About or Portfolio</a><br>
     <a href="cmsBreather.php">Breather</a><br>
     <a href="cmsContact.php">Contact</a>
 </body>

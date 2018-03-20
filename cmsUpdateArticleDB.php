@@ -1,71 +1,76 @@
 <?php
 
+
+function updateDeleteFlag ($itemID) {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+
+    $queryDel = $db->prepare("UPDATE `article`
+                                    SET `deleteFlag` = 1
+                                    WHERE `article`.`id` = :itemID;");
+
+    $queryDel->bindParam(':itemID', $itemID);
+
+    $resultBool = $queryDel->execute();
+    return $resultBool;
+}
+
+
+function addNewImage ($imageName, $alt, $source) {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+
+    $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`) 
+                                      VALUES (:imageName, :alt, :source);");
+
+    $queryAdd->bindParam(':imageName', $imageName);
+    $queryAdd->bindParam(':alt', $alt);
+    $queryAdd->bindParam(':source', $source);
+
+    $queryAdd->execute();
+    $lastImageInsertId = $db->lastInsertId();
+    return $lastImageInsertId;
+}
+
+
+function editArticle ($title, $section, $articleText, $imageID) {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+
+    $queryEdit = $db->prepare("REPLACE INTO `article` (`title`, `section`, `articleText`, `imageID`) 
+                                      VALUES (:title, :section, :articleText, :imageID);");
+
+    $queryEdit->bindParam(':title', $title);
+    $queryEdit->bindParam(':section', $section);
+    $queryEdit->bindParam(':articleText', $articleText);
+    $queryEdit->bindParam(':imageID', $imageID);
+
+    $resultBool = $queryEdit->execute();
+    return $resultBool;
+}
+
+
 $actionType = $_POST['updateArticle'];
+
+$existingArticleID = $_POST['articleDB_id'];
+$existingImageID = $_POST['articleDB_IMGid'];
+$existingImageName = $_POST['existingImageName'];
+$existingImageSource = $_POST['articleDB_IMGsource'];
+$existingSection = $_POST['articleDB_section'];
+
+$newTitle = $_POST['newTitle'];
 $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
 
 
-$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-
 switch ($actionType) {
-    case 'New':
-        echo 'new new new';
+    case 'Delete':
+        updateDeleteFlag($existingArticleID);
         break;
     case 'Edit':
-        echo 'edit edit edit';
-        break;
-    case 'Delete';
-        echo 'delete delete';
+        addNewImage($existingImageName, $existingImageName, $existingImageSource);
+        editArticle($newTitle, $existingSection,$newArticle,$existingImageID);
         break;
     default:
-        echo 'bye';
+        echo '> No action selected yet <';
 }
 
-//SQL adding information to the "image table"
-
-$query2 = $db->prepare("");
-
-$query2->bindParam(':name', $addDbChildName);
-$query2->bindParam(':DOB', $addDbchildDOB);
-$query2->bindParam(':FavColor', $addDbFavColour);
-
-$query2->execute();
-$lastImageInsertId = $db->lastInsertId();
-
-
-
-//SQL adding information to the "article" table
-//NEED IMAGE ID FROM ABOVE IF NEW!!!!!
-
-$query1 = $db->prepare("");
-
-$query1->bindParam(':name', $addDbAdultName);
-$query1->bindParam(':DOB', $addDbAdultDOB);
-$query1->bindParam(':gender', $addDbAdultGender);
-
-$query1->execute();
-$lastArticleInsertId = $db->lastInsertId();
-
-
-
-
-
-
-
-
-
-//SQL adding information to the children table
-
-$query3 = $db->prepare("INSERT INTO `parent_of` (`adults_id`,`children_id`) VALUES (:AdultID, :ChildID);");
-
-$query3->bindParam(':AdultID', $lastAdultInsertId);
-$query3->bindParam(':ChildID', $lastChildInsertId);
-
-if($query1 && $query2) {
-    $query3->execute();
-}
-
-
-header("Location: addAdultForm.php");
 
 ?>

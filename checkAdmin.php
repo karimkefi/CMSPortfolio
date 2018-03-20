@@ -29,7 +29,7 @@ $userPassword = $_POST['formInputPswd'];
 session_start();
 
 if (userCredentials($userEmail, $userPassword)) {
-    header("Location: cmsEditPage.php");
+    header("Location: cmsHomePage.php");
 } else {
     header("Location: index.php");
 }
