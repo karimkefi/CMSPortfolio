@@ -43,23 +43,23 @@
     <form method="post" action="cmsUpdateArticleDB.php">
 
         <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB()[0]['id'];?>" >
+<!--        <input type="hidden" name="articleDB_section" value="--><?php //echo getArticleFromDB()[0]['section'];?><!--" >-->
         <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB()[0]['imageID'];?>" >
-        <input type="hidden" name="articleDB_section" value="<?php echo getArticleFromDB()[0]['section'];?>" >
         <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB()[0]['source'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB()[0]['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
         <input type="text" name="newTitle" value="<?php echo getArticleFromDB()[0]['title'];?>" >
         <br>
 
+        <h3>Section (DB only):</h3>
+        <input type="text" name="newTitle" value="<?php echo getArticleFromDB()[0]['section'];?>" >
+        <br>
 
         <h3>Article Text:</h3>
-        <textarea rows="8" cols="50" name="newArticleText">
-            <?php echo getArticleFromDB()[0]['articleText'];?>
-        </textarea><br>
-
+        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB()[0]['articleText'];?></textarea><br>
 
         <h3>Image Name:</h3>
-        <input type="text" name="existingImageName" value="<?php echo getArticleFromDB()[0]['imageName'];?>" ><br>
         <img class="articleBox" src="<?php echo getArticleFromDB()[0]['source'];?>"><br>
         <input type="file" name="newArticleImage"><br>
 

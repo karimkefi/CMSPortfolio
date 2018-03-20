@@ -16,4 +16,19 @@ function getArticleFromDB() {
     return $querySelect->fetchAll();
 }
 
+
+function getContactFromDB($string) {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    $querySelect = $db->prepare("SELECT `id`, `Type`, `details`,
+                                            FROM `contact`
+                                            WHERE `Type` = :type;");
+
+    $querySelect->bindParam(':type', $string);
+    $querySelect->execute();
+    return $querySelect->fetchAll();
+}
+
+
 ?>

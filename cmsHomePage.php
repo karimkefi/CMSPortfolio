@@ -7,10 +7,18 @@
     <link href="normalize.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Select the Content Type to edit...</h1>
-    <a href="cmsEditArticle.php">About or Portfolio</a><br>
-    <a href="cmsBreather.php">Breather</a><br>
-    <a href="cmsContact.php">Contact</a>
+    <h1>Select the Content to edit...</h1><br>
+
+    <a href="cmsNewArticle.php">Add new aticles: About & Portfolio</a><br>
+
+    <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a><br>
+<!--    <a href="cmsBreather.php">Breather</a><br>-->
+
+    <a href="newImageSelect.php">Add new image to Database</a><br>
+
+    <a href="cmsEditContact.php">Update Contact Details (not live)</a><br>
+
+
 </body>
 </html>
 

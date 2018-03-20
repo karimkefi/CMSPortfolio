@@ -26,13 +26,12 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-var_dump($_FILES);
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+//        echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -74,10 +73,9 @@ if ($uploadOk == 0) {
 }
 
 //create db record
-$newPhotoName = $_FILES["fileToUpload"]["name"];
-$newPhotoAlt = $_POST['newImageName'];
-$newPhotoSource = 'Img/'.$newPhotoName;
+$newPhotoName = $_POST['newImageName'];
+$newPhotoAlt = $_POST['altImageDesciption'];
+$newPhotoSource = 'Img/'.$_FILES["fileToUpload"]["name"];
 addNewImage($newPhotoName,$newPhotoAlt,$newPhotoSource);
-
 
 ?>

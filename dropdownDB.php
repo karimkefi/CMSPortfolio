@@ -25,10 +25,10 @@ $elementString = 'title';
 $titleDropdown = getValuesfromDB($resultArray, $elementString);
 
 
-$querySection = $db->prepare("SELECT `section` FROM `article`;");
+$querySection = $db->prepare("SELECT DISTINCT `section` FROM `article`;");
 $querySection->execute();
 $resultArray = $querySection->fetchAll();
 $elementString = 'section';
-$aboutDropdown = getValuesfromDB($resultArray, $elementString);
+$sectionDropdown = getValuesfromDB($resultArray, $elementString);
 
 ?>
