@@ -72,5 +72,6 @@ switch ($actionType) {
         echo '> No action selected yet <';
 }
 
+header("Location: cmsHomePage.php");
 
 ?>
