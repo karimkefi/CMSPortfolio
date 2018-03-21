@@ -1,0 +1,320 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Courier, sans-serif;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx CONTAINERS xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 50px;
+    height: 650px;
+    width: 85%;
+    overflow: auto;
+    text-align: center;
+}
+
+.topContainer {
+    margin-top: 100px;
+    margin-right: 75px;
+}
+
+.bottomContainer {
+    height: 250px;
+    padding-left: 0;
+    margin-right: 65px;
+}
+
+.breatherContainer {
+    position: relative;
+    margin: 0 auto;
+    height: 280px;
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+}
+
+.breatherContainer p,
+.breatherContainer h1 {
+    margin: 20px;
+    width: 95%;
+    padding-right: 100px;
+}
+
+.breatherText {
+    color: #FFFFFF;
+    background-color: #0F5285;
+    font-size: 1.2rem;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx HEADER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.headerBox {
+    position: fixed;
+    height: 140px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    top: 20px;
+    height: 80px;
+    width: 90%;
+    background-color: RGBA(64,64,64,0);
+    font-size: 3rem;
+    transition-timing-function: ease;
+    transition: width 1s;
+    cursor: pointer;
+    padding-right: 90px;
+}
+
+header:hover {
+    background-color: #1091DA;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx SIDE NAV xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+nav {
+    position: fixed;
+    right: 0;
+    width: 90px;
+    height: 100%;
+    background-color: #1091DA;
+    z-index: 5;
+}
+
+.sideNavList {
+    padding: 0;
+    margin-top: 20px;
+    float: left;
+}
+
+.sideNavList li {
+    width: 50px;
+    height: 50px;
+    border: 1px #000000;
+    border-radius: 35%;
+    list-style-type: none;
+    margin-top: 100px;
+    margin-left: 20px;
+    transition-timing-function: ease;
+    transition: height 1s;
+}
+
+.sideNavList li:hover {
+    cursor: pointer;
+    background-color: #12AAFF;
+    height: 100px;
+}
+
+.icon {
+    transform: translate(25%,25%);
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx CODING LANGUAGES SECTION xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.codingLanguages {
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+    display: block;
+    width: 100%;
+    height: 120px;
+    overflow: auto;
+}
+
+.codingIcon5 {
+    float: left;
+    width: 20%;
+    height: 100px;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx BACKGROUND IMAGES xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.homeImage {
+    background: url("Img/computerNcoffee.jpg");
+}
+
+.aboutmeImage {
+    background: url("Img/skyBackground.jpg");
+}
+
+.portfolioImage {
+    background: url("Img/leaves.jpg");
+}
+
+.backgroundImage {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx ARTICLE xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.articleBox {
+    overflow: auto;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.articleBox img {
+    height: 160px;
+    width: 320px;
+    float: left;
+    margin: 15px;
+    padding: 0 15px;
+}
+
+.articleBox p {
+    float: left;
+    height: 90%;
+    width: 60%;
+    margin: 10px;
+    text-align: left;
+    background-color: RGBA(202,223,255,0.7);
+    border-radius: 20px;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx FOOTER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.footer {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
+    color: #FFFFFF;
+    background-color: #052F47;
+}
+
+.footerBox {
+    height: 160px;
+    margin: 15px;
+    width: 30%;
+    float: left;
+}
+
+.footerIcon {
+    float: left;
+    width: 30%;
+    height: 120px;
+    list-style-type: none;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx HEADER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.cmsMargin {
+    margin: 10px;
+}
+
+form h3, form input {
+    margin: 15px;
+}
+
+form label {
+    font-size: 1.4rem;
+    display: block;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxx MEDIA QUERIES (MEDIUM) xxxxxxxxxxxxxxxxxxxxxxx  */
+
+@media screen and (max-width: 1140px) {
+
+    .codingLanguages {
+        width: 100%;
+        height: 240px;
+    }
+
+    .codingIcon3 {
+        width: 33%;
+        height: 100px;
+    }
+
+    .breatherContainer {
+        height: 175px;
+    }
+
+    .breatherContainer p,
+    .breatherContainer h1 {
+        margin: 20px;
+    }
+
+    .breatherContainer p {
+        font-size: 1rem;
+    }
+
+    .articleBox p {
+        width: 375px;
+        font-size: 0.85rem;
+        float: left;
+    }
+
+    .articleBox img {
+        padding: 0;
+        width: 280px;
+    }
+
+    .footerBox {
+        margin: 5px;
+    }
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxx MEDIA QUERIES (SMALL) xxxxxxxxxxxxxxxxxxxxxx  */
+
+@media screen and (max-width: 775px) {
+
+    header {
+        font-size: 1.8rem;
+    }
+
+    .breatherContainer p,
+    .breatherContainer h1 {
+        margin: 20px;
+        width: 500px;
+    }
+
+    .breatherContainer h1 {
+        font-size: 1.2rem;
+    }
+
+    .breatherContainer p {
+        font-size: 0.8rem;
+    }
+
+    .articleBox p {
+        display: none;
+    }
+
+    .footerBox {
+        margin: 5px;
+        font-size: 0.7rem;
+    }
+
+    .footerBox img{
+        height: 60px;
+        width: 60px;
+        float: none;
+    }
+
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxx MEDIA QUERIES (X-SMALL) xxxxxxxxxxxxxxxxxxxxxx  */
+
+@media screen and (max-width: 500px) {
+
+    header {
+        font-size: 1.2rem;
+    }
+}
