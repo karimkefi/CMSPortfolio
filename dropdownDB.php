@@ -1,5 +1,14 @@
 <?php
 
+
+function getArticleTitles($db, $elementString) {
+    $querySection = $db->prepare("SELECT DISTINCT " . $elementString . " FROM `article`;");
+    $querySection->execute();
+    $resultArray = $querySection->fetchAll();
+    return $resultArray;
+}
+
+
 function getValuesfromDB ($elements,$key) {
     $resultString = '';
     foreach ($elements as $e) {
@@ -9,26 +18,5 @@ function getValuesfromDB ($elements,$key) {
 }
 
 
-$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-
-//$queryAbout = $db->prepare("SELECT `title` FROM `article`;");
-//$queryAbout->execute();
-//$results = $queryAbout->fetchAll();
-//$aboutDropdown = getValuesfromDB($resultArray);
-
-$queryTitle = $db->prepare("SELECT `title` FROM `article`;");
-$queryTitle->execute();
-$resultArray = $queryTitle->fetchAll();
-$elementString = 'title';
-$titleDropdown = getValuesfromDB($resultArray, $elementString);
-
-
-$querySection = $db->prepare("SELECT DISTINCT `section` FROM `article`;");
-$querySection->execute();
-$resultArray = $querySection->fetchAll();
-$elementString = 'section';
-$sectionDropdown = getValuesfromDB($resultArray, $elementString);
 
 ?>

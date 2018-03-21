@@ -1,10 +1,7 @@
 <?php
 
-function getArticleFromDB() {
-    $selectTitle = $_POST['selectedTitle'];
 
-    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+function getArticleFromDB($db, $selectTitle) {
 
     $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title` 
                                             FROM `article`
@@ -17,9 +14,7 @@ function getArticleFromDB() {
 }
 
 
-function getContactFromDB($string) {
-    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+function getContactFromDB($db, $string) {
 
     $querySelect = $db->prepare("SELECT `id`, `Type`, `details`,
                                             FROM `contact`

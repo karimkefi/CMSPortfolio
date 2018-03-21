@@ -2,11 +2,58 @@
 <html lang="en">
 
 <?php
-    require_once 'dropdownDB.php';
-    require_once 'getArticleImgDB.php';
-    require_once 'cmsUpdateArticleDB.php';
-?>
 
+$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+require_once 'dropdownDB.php';
+    require_once 'getArticleImgDB.php';
+    require_once 'updateArticleDB.php';
+
+$dropdownKey = 'title';
+$dropdownArray = getArticleTitles($db, $dropdownKey);
+$titleDropdown = getValuesfromDB($dropdownArray, $dropdownKey);
+
+$selectTitle = $_POST['selectedTitle'];
+
+$actionType = $_POST['updateArticle'];
+
+$existingArticleID = $_POST['articleDB_id'];
+$existingSection = $_POST['articleDB_section'];
+
+$existingImageID = $_POST['articleDB_IMGid'];
+$existingImageName = $_POST['existingImageName'];
+$existingImageSource = $_POST['articleDB_IMGsource'];
+
+$newTitle = $_POST['newTitle'];
+$newArticle = $_POST['newArticleText'];
+$newImage = $_POST['newArticleImage'];
+$newSection = $_POST['selectedSection'];
+
+switch ($actionType) {
+    case 'Delete':
+        updateDeleteFlag($existingArticleID);
+        echo '> > Article has been deleted < <';
+        break;
+    case 'Edit':
+        if (empty($newImage)) {
+            editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
+            echo '> > Article Updated';
+        }else{
+            if(empty(findImage($newImage))) {
+                echo '> > You need to add to the Image to the DB first < <';
+            }else{
+                $newImageID = findImage($newImage)[0]['id'];
+                editArticle($newTitle, $existingSection, $newArticle, $newImageID);
+                echo '> > Article and Image Updated < <';
+            }
+        }
+        break;
+    default:
+        echo '> > No action selected yet < <';
+}
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -29,38 +76,37 @@
 
     <div>
         <?php
-        $articleDB_id = getArticleFromDB()[0]['id'];
+        $articleDB_id = getArticleFromDB($db, $selectTitle)[0]['id'];
         echo 'article ID:'.$articleDB_id.' / ';
 
-        $articleDB_IMGid = getArticleFromDB()[0]['imageID'];
+        $articleDB_IMGid = getArticleFromDB($db, $selectTitle)[0]['imageID'];
         echo 'image ID:'.$articleDB_IMGid.' / ';
 
-        $articleDB_section = getArticleFromDB()[0]['section'];
+        $articleDB_section = getArticleFromDB($db, $selectTitle)[0]['section'];
         echo 'Section:'.$articleDB_section;
         ?>
     </div>
 
-    <form method="post" action="cmsUpdateArticleDB.php">
+    <form method="post" action="updateArticleDB.php">
 
-        <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB()[0]['id'];?>" >
-<!--        <input type="hidden" name="articleDB_section" value="--><?php //echo getArticleFromDB()[0]['section'];?><!--" >-->
-        <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB()[0]['imageID'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB()[0]['source'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB()[0]['imageName'];?>" >
+        <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['id'];?>" >
+        <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['imageID'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['source'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB()[0]['title'];?>" >
+        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['title'];?>" >
         <br>
 
         <h3>Section (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB()[0]['section'];?>" >
+        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['section'];?>" >
         <br>
 
         <h3>Article Text:</h3>
-        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB()[0]['articleText'];?></textarea><br>
+        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)[0]['articleText'];?></textarea><br>
 
         <h3>Image Name:</h3>
-        <img class="articleBox" src="<?php echo getArticleFromDB()[0]['source'];?>"><br>
+        <img class="articleBox" src="<?php echo getArticleFromDB($db, $selectTitle)[0]['source'];?>"><br>
         <input type="file" name="newArticleImage"><br>
 
         <input style="margin: 10px" type="submit" name="updateArticle" value="Edit">
