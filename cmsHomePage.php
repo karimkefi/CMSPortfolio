@@ -7,10 +7,13 @@
     <link href="normalize.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Select the Content to edit...</h1><br>
-    <a href="cmsNewImageSelect.php">Add new image to Database</a><br>
-    <a href="cmsNewArticle.php">Add new articles: About & Portfolio</a><br>
-    <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a><br>
+    <h1>Select the Content to edit...</h1>
+    <p></p>
+    <a href="cmsNewImageSelect.php">Add new image to Database</a>
+    <p></p>
+    <a href="cmsNewArticle.php">Add new articles: About & Portfolio</a>
+    <p></p>
+    <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a>
 </body>
 </html>
 

@@ -11,14 +11,14 @@
 <body>
 
 <form action="uploadFile.php" method="post" enctype="multipart/form-data">
-    <h1>Select image to upload:</h1><br>
-    <br>
-    <input type="text" name="newImageName" value="Add_Image_name" ><br>
-    <br>
-    <input type="text" name="altImageDesciption" value="Add_AltDescription" ><br>
-    <br>
-    <input type="file" name="fileToUpload" id="fileToUpload"><br>
-    <br>
+    <h1>Select image to upload:</h1>
+    <p></p>
+    <input type="text" name="newImageName" value="Add_Image_name" >
+    <p></p>
+    <input type="text" name="altImageDesciption" value="Add_AltDescription" >
+    <p></p>
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <p></p>
     <input class="cmsMargin" type="submit" value="Import Image" name="submit">
 </form>
 

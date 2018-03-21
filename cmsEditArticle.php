@@ -6,8 +6,8 @@ $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 require_once 'dropdownDB.php';
-    require_once 'getArticleImgDB.php';
-    require_once 'updateArticleDB.php';
+require_once 'getArticleImgDB.php';
+require_once 'updateArticleDB.php';
 
 $dropdownKey = 'title';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
