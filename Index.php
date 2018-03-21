@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+
+<?php
+
+$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+require_once 'getArticleImgDB.php';
+require_once 'indexFunctions.php';
+
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,26 +77,13 @@
 <div class="backgroundImage aboutmeImage" id="aboutmeLocation">
     <section class="container">
         <div class="articleBox">
-            <img src="Img/london.jpg" alt="St Pauls">
-            <p>Born and bred in London. I went to a French school in London (a long story for another day)
-                but switched to English A-levels before going to UCL again in London!
-                At UCL i studied Bio-chemical Engineering which taught me how to make pills from plasmids.
-                I needed a job (any job) and found myself being interviewed in the city and getting
-                a job as a junior accountant for an investment bank where I worked until the big move.</p>
+            <?php echo displayImgageAndText($db, 'Where I am from'); ?>
         </div>
         <div class="articleBox">
-            <img src="Img/bathview-KarimOwn.jpg" alt="View of Bath">
-            <p>My wife is from Bath and we would come back to visit family and friends.
-                We always talked about brining up our children out of London and couldn’t think of
-                a better place. So in Aug 2017 we picked up and moved 100miles down the M4 to junction 18.
-                For me this was a great opportunity for me to switch career to a new industry as
-                a full stack developer.</p>
+            <?php echo displayImgageAndText($db, 'Where I am now'); ?>
         </div>
         <div class="articleBox">
-            <img src="Img/CyclingTrafSq.jpg" alt="Group of cyclists">
-            <p>This is me dressed as a MAMIL at the start of my 2 day cycle ride from London to Amsterdam.
-                I really enjoyed cycling 135 miles with a group of friends to raise money for charity.
-                I also support a financial educaiton charity as a Trustee.</p>
+            <?php echo displayImgageAndText($db, 'Interests'); ?>
         </div>
     </section>
 </div>
@@ -98,21 +97,13 @@
 <div class="backgroundImage portfolioImage" id="portfolioLocation">
     <section class="container">
         <div class="articleBox">
-            <img src="Img/challengeLogo.png" alt="Mayden Logo">
-            <p>Challenge was to copy the Mayden Logo using only CSS! None of this right click business!
-                This is harder than it sounds. Playing around with CSS shapes, border radius,
-                colo(u)rs and alignment. Trick is to use the inspector and arrows!</p>
+            <?php echo displayImgageAndText($db, 'Mayden Logo'); ?>
         </div>
         <div class="articleBox">
-            <img src="Img/challengePilot.png" alt="Pilot Website">
-            <p>Copy a template website, functionality and
-                media queries for resizing depending on the
-                screensize.</p>
+            <?php echo displayImgageAndText($db, 'Pilot Webpage'); ?>
         </div>
         <div class="articleBox">
-            <img src="Img/challengeForm.png" alt="Input form">
-            <p>First Pair Coding work with James. This was a simple Form to build,
-                but difficult to navigate without diving onto the keyboard and driving!</p>
+            <?php echo displayImgageAndText($db, 'Login Form'); ?>
         </div>
     </section>
 </div>
