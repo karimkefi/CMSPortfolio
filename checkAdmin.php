@@ -5,6 +5,7 @@ function userCredentials ($user, $passWord) {
         $_SESSION['userLoggedIn'] = true;
         return true;
     } else {
+        $_SESSION['userLoggedIn'] = false;
         return false;
     }
 }
@@ -23,12 +24,12 @@ function sanitiseString ($stringInput) {
 
 //--------------------------------------------------------------------------------
 
-$userEmail = $_POST['formInputEmail'];
-$userPassword = $_POST['formInputPswd'];
+$userName = $_POST['InputUserName'];
+$userPassword = $_POST['InputPswd'];
 
 session_start();
 
-if (userCredentials($userEmail, $userPassword)) {
+if (userCredentials($userName, $userPassword)) {
     header("Location: cmsHomePage.php");
 } else {
     header("Location: index.php");

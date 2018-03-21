@@ -9,15 +9,20 @@
 <?php
 session_start();
 if ($_SESSION['userLoggedIn']){
-    header("Location: account.php");
+    header("Location: cmsHomePage.php");
 }
 ?>
 
 <form method="post" action="checkAdmin.php">
-    User Name:<input type="text" name="InputUserName"><br>
-    Password:<input type="text" name="InputPswd"><br>
+    <label for="userName">User Name:</label>
+    <input id="userName" type="text" name="InputUserName">
+    <p></p>
+    <label for="passWord" >Password:</label>
+    <input id="passWord" type="text" name="InputPswd">
+    <p></p>
     <input type="submit" value="Submit...">
 </form>
+
 
 <?php
 if ($_SESSION['invalidEmail']){
