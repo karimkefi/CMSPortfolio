@@ -41,22 +41,19 @@ if(empty(findImage($newImage))) {
 <h1>New Article Page</h1>
 
 <form method="post" action="updateArticleDB.php">
-    <h3>Title (DB only):</h3>
-    <input type="text" name="newTitle">
-    <br>
-    <h3>Section (DB only):</h3>
-    <select name="selectedSection">
-        <?php
-        echo $sectionDropdown;
-        ?>
-    </select>
-    <br>
-    <h3>Article Text:</h3>
-    <textarea rows="8" cols="50" name="newArticleText"></textarea><br>
-    <h3>Image Name:</h3>
 
+    <label for="title" >Title (DB only):</label><br>
+    <input id="title" type="text" name="newTitle"><br>
+
+    <label for="section">Section (DB only):</label><br>
+    <select id="section" name="selectedSection"><?php echo $sectionDropdown;?></select><br>
+
+    <label for="article">Article Text:</label><br>
+    <textarea id="article" rows="8" cols="50" name="newArticleText"></textarea>
+
+    <h3>Image Name:</h3><br>
     <input type="file" name="newArticleImage"><br>
-    <input style="margin: 10px" type="submit" name="updateArticle" value="Add">
+    <input type="submit" name="updateArticle" value="Add">
 </form>
 
 

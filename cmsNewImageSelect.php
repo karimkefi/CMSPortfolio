@@ -19,7 +19,7 @@
     <br>
     <input type="file" name="fileToUpload" id="fileToUpload"><br>
     <br>
-    <input type="submit" value="Import Image" name="submit">
+    <input class="cmsMargin" type="submit" value="Import Image" name="submit">
 </form>
 
 </body>

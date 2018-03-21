@@ -213,6 +213,21 @@ nav {
     list-style-type: none;
 }
 
+/* xxxxxxxxxxxxxxxxxxxxx HEADER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+.cmsMargin {
+    margin: 10px;
+}
+
+form h3, form input {
+    margin: 15px;
+}
+
+form label {
+    font-size: 1.4rem;
+    display: block;
+}
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx MEDIA QUERIES (MEDIUM) xxxxxxxxxxxxxxxxxxxxxxx  */
 
 @media screen and (max-width: 1140px) {
@@ -302,4 +317,4 @@ nav {
     header {
         font-size: 1.2rem;
     }
-
+}

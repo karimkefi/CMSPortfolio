@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <?php
 
@@ -39,11 +38,11 @@ switch ($actionType) {
         if (empty($newImage)) {
             editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
             echo '> > Article Updated';
-        }else{
+        } else {
             if(empty(findImage($newImage))) {
                 echo '> > You need to add to the Image to the DB first < <';
-            }else{
-                $newImageID = findImage($newImage)[0]['id'];
+            } else {
+                $newImageID = findImage($newImage)['id'];
                 editArticle($newTitle, $existingSection, $newArticle, $newImageID);
                 echo '> > Article and Image Updated < <';
             }
@@ -55,6 +54,7 @@ switch ($actionType) {
 
 ?>
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CMS Edit Article Page</title>
@@ -71,46 +71,46 @@ switch ($actionType) {
             echo $titleDropdown;
             ?>
         </select>
-        <input style="margin: 10px" type="submit" value="Pull from DB">
+        <input class="cmsMargin" type="submit" value="Pull from DB">
     </form>
 
     <div>
         <?php
-        $articleDB_id = getArticleFromDB($db, $selectTitle)[0]['id'];
+        $articleDB_id = getArticleFromDB($db, $selectTitle)['id'];
         echo 'article ID:'.$articleDB_id.' / ';
 
-        $articleDB_IMGid = getArticleFromDB($db, $selectTitle)[0]['imageID'];
+        $articleDB_IMGid = getArticleFromDB($db, $selectTitle)['imageID'];
         echo 'image ID:'.$articleDB_IMGid.' / ';
 
-        $articleDB_section = getArticleFromDB($db, $selectTitle)[0]['section'];
+        $articleDB_section = getArticleFromDB($db, $selectTitle)['section'];
         echo 'Section:'.$articleDB_section;
         ?>
     </div>
 
     <form method="post" action="updateArticleDB.php">
 
-        <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['id'];?>" >
-        <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['imageID'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['source'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['imageName'];?>" >
+        <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)['id'];?>" >
+        <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)['imageID'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['source'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['title'];?>" >
+        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
         <br>
 
         <h3>Section (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)[0]['section'];?>" >
+        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
         <br>
 
         <h3>Article Text:</h3>
-        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)[0]['articleText'];?></textarea><br>
+        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)['articleText'];?></textarea><br>
 
         <h3>Image Name:</h3>
-        <img class="articleBox" src="<?php echo getArticleFromDB($db, $selectTitle)[0]['source'];?>"><br>
+        <img class="articleBox" src="<?php echo getArticleFromDB($db, $selectTitle)['source'];?>"><br>
         <input type="file" name="newArticleImage"><br>
 
-        <input style="margin: 10px" type="submit" name="updateArticle" value="Edit">
-        <input style="margin: 10px" type="submit" name="updateArticle" value="Delete">
+        <input class="cmsMargin" type="submit" name="updateArticle" value="Edit">
+        <input class="cmsMargin" type="submit" name="updateArticle" value="Delete">
     </form>
 
 
