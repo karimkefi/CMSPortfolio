@@ -20,12 +20,12 @@ $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
 $newSection = $_POST['selectedSection'];
 
-if(empty(findImage($newImage))) {
+if(empty(findImage($db, $newImage))) {
     echo '> > Ensure you have added image to to the DB first < <';
-}else {
-    $newImageID = findImage($newImage)[0]['id'];
-    editArticle($newTitle, $newSection, $newArticle, $newImageID);
-    echo '> > New Article and Image Updated < <';
+} else {
+    $newImageID = findImage($db, $newImage)[0]['id'];
+    editArticle($db, $newTitle, $newSection, $newArticle, $newImageID);
+    echo '> > New Article and Image Added < <';
 }
 
 ?>
@@ -40,7 +40,7 @@ if(empty(findImage($newImage))) {
 <body>
 <h1>New Article Page</h1>
 
-<form method="post" action="updateArticleDB.php">
+<form method="post" action="cmsNewArticle.php">
 
     <label for="title" >Title (DB only):</label><br>
     <input id="title" type="text" name="newTitle"><br>
@@ -52,10 +52,14 @@ if(empty(findImage($newImage))) {
     <textarea id="article" rows="8" cols="50" name="newArticleText"></textarea>
 
     <h3>Image Name:</h3><br>
-    <input type="file" name="newArticleImage"><br>
+    <input type="file" name="newArticleImage">
+    <p></p>
+
     <input type="submit" name="updateArticle" value="Add">
 </form>
 
+<p></p>
+<a href="cmsHomePage.php">CMS Home</a>
 
 </body>
 </html>

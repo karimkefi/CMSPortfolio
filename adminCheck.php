@@ -2,8 +2,8 @@
 
 require ('adminFunctions.php');
 
-$userName = $_POST['InputUserName'];
-$userPassword = $_POST['InputPswd'];
+$userName = sanitiseString($_POST['InputUserName']);
+$userPassword = sanitiseString($_POST['InputPswd']);
 
 session_start();
 

@@ -1,20 +1,9 @@
 <?php
 
+$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-function addNewImage ($imageName, $alt, $source) {
-    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-
-    $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`) 
-                                      VALUES (:imageName, :alt, :source);");
-
-    $queryAdd->bindParam(':imageName', $imageName);
-    $queryAdd->bindParam(':alt', $alt);
-    $queryAdd->bindParam(':source', $source);
-
-    $queryAdd->execute();
-    $lastImageInsertId = $db->lastInsertId();
-    return $lastImageInsertId;
-}
+require_once 'updateArticleDB.php';
 
 
 //In your "php.ini" file, search for the file_uploads directive, and set it to On:
@@ -76,6 +65,6 @@ if ($uploadOk == 0) {
 $newPhotoName = $_POST['newImageName'];
 $newPhotoAlt = $_POST['altImageDesciption'];
 $newPhotoSource = 'Img/'.$_FILES["fileToUpload"]["name"];
-addNewImage($newPhotoName,$newPhotoAlt,$newPhotoSource);
+addNewImage($db, $newPhotoName,$newPhotoAlt,$newPhotoSource);
 
 ?>

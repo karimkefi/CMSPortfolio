@@ -13,10 +13,9 @@ $dropdownKey = 'title';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
 $titleDropdown = getValuesfromDB($dropdownArray, $dropdownKey);
 
-$selectTitle = $_POST['selectedTitle'];
-
 $actionType = $_POST['updateArticle'];
 
+$selectTitle = $_POST['selectedTitle'];
 $existingArticleID = $_POST['articleDB_id'];
 $existingSection = $_POST['articleDB_section'];
 
@@ -31,19 +30,19 @@ $newSection = $_POST['selectedSection'];
 
 switch ($actionType) {
     case 'Delete':
-        updateDeleteFlag($existingArticleID);
+        updateDeleteFlag($db, $existingArticleID);
         echo '> > Article has been deleted < <';
         break;
     case 'Edit':
         if (empty($newImage)) {
-            editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
-            echo '> > Article Updated';
+            editArticle($db, $selectTitle, $existingSection, $newArticle, $existingImageID);
+            echo '> > Article Updated < <';
         } else {
-            if(empty(findImage($newImage))) {
+            if(empty(findImage($db, $newImage))) {
                 echo '> > You need to add to the Image to the DB first < <';
             } else {
-                $newImageID = findImage($newImage)['id'];
-                editArticle($newTitle, $existingSection, $newArticle, $newImageID);
+                $newImageID = findImage($db, $newImage)['id'];
+                editArticle($db, $newTitle, $existingSection, $newArticle, $newImageID);
                 echo '> > Article and Image Updated < <';
             }
         }
@@ -87,7 +86,7 @@ switch ($actionType) {
         ?>
     </div>
 
-    <form method="post" action="updateArticleDB.php">
+    <form method="post" action="cmsEditArticle.php">
 
         <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)['id'];?>" >
         <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)['imageID'];?>" >
@@ -95,11 +94,11 @@ switch ($actionType) {
         <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
+        <input type="text" name="selectedTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
         <br>
 
         <h3>Section (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
+        <input type="text" name="articleDB_section" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
         <br>
 
         <h3>Article Text:</h3>
@@ -113,6 +112,8 @@ switch ($actionType) {
         <input class="cmsMargin" type="submit" name="updateArticle" value="Delete">
     </form>
 
+<p></p>
+<a href="cmsHomePage.php">CMS Home</a>
 
 </body>
 </html>
