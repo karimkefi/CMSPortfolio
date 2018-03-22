@@ -42,6 +42,11 @@ require_once 'indexFunctions.php';
                     <img src="Img/iconsEmail.png" class="icon" alt="Email Icon">
                 </a>
             </li>
+            <li>
+                <a href="adminLogin.php">
+                    <img src="Img/icons-admin-50.png" alt="Edit Icon">
+                </a>
+            </li>
         </ul>
     </nav>
     <header>Karim Kefi Portfolio</header>
