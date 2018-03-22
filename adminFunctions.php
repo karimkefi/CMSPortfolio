@@ -1,25 +1,6 @@
 <?php
 
 /**
- *The function takes 2 values (Admin user and password) and checks if the pair match fixed values
- *
- *@$user string value
- *@$passWord string value
- *
- *@return boolean result to confirm correct details
- */
-function userCredentials (string $user, string $passWord):bool {
-    if ($user === 'kefi' && $passWord === 'A1') {
-        $_SESSION['userLoggedIn'] = true;
-        return true;
-    } else {
-        $_SESSION['userLoggedIn'] = false;
-        $_SESSION['invalidcombo'] = true;
-        return false;
-    }
-}
-
-/**
  *The function checks passed a string variable through 3 modifications to sanitise
  * 1. Strips out slashes, 2.trim white spaces either side, 3. Escapes special characters.
  *
