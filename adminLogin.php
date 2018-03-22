@@ -23,7 +23,6 @@ if ($_SESSION['userLoggedIn']){
     <input type="submit" value="Submit...">
 </form>
 
-
 <?php
 if ($_SESSION['invalidEmail']){
     echo 'invalid email characters';
@@ -32,7 +31,6 @@ if ($_SESSION['invalidEmail']){
 } else {
     echo '';
 }
-
 ?>
 
 </body>
