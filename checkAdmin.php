@@ -10,7 +10,7 @@
  *@return boolean result to confirm correct details
  */
 function userCredentials ($user, $passWord) {
-    if ($user == 'kefi' && $passWord == 'A1') {
+    if ($user === 'kefi' && $passWord === 'A1') {
         $_SESSION['userLoggedIn'] = true;
         return true;
     } else {
