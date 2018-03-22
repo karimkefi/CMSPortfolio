@@ -1,7 +1,7 @@
 <?php
 
 /**
- *The function takes 2 parameters (database PDO and string) runs an SQL query
+ *The function takes 2 parameters (database PDO and string) runs an SQL query to pull articles from DB
  *
  *@$db Database Class PDO
  *@$elementString string value

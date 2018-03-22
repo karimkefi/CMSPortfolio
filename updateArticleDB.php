@@ -49,7 +49,7 @@ function findImage($db, $imageName) {
  *@return last inserted image id from the database image table
  */
 function addNewImage ($db, $imageName, $alt, $source) {
-    $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`) 
+    $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`)
                                       VALUES (:imageName, :alt, :source);");
 
     $queryAdd->bindParam(':imageName', $imageName);
