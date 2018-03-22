@@ -20,11 +20,11 @@ $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
 $newSection = $_POST['selectedSection'];
 
-if(empty(findImage($newImage))) {
+if(empty(findImage($db, $newImage))) {
     echo '> > Ensure you have added image to to the DB first < <';
 }else {
-    $newImageID = findImage($newImage)[0]['id'];
-    editArticle($newTitle, $newSection, $newArticle, $newImageID);
+    $newImageID = findImage($db, $newImage)[0]['id'];
+    editArticle($db, $newTitle, $newSection, $newArticle, $newImageID);
     echo '> > New Article and Image Updated < <';
 }
 

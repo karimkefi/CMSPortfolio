@@ -31,19 +31,19 @@ $newSection = $_POST['selectedSection'];
 
 switch ($actionType) {
     case 'Delete':
-        updateDeleteFlag($existingArticleID);
+        updateDeleteFlag($db, $existingArticleID);
         echo '> > Article has been deleted < <';
         break;
     case 'Edit':
         if (empty($newImage)) {
-            editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
+            editArticle($db, $newTitle, $existingSection, $newArticle, $existingImageID);
             echo '> > Article Updated';
         } else {
-            if(empty(findImage($newImage))) {
+            if(empty(findImage($db, $newImage))) {
                 echo '> > You need to add to the Image to the DB first < <';
             } else {
-                $newImageID = findImage($newImage)['id'];
-                editArticle($newTitle, $existingSection, $newArticle, $newImageID);
+                $newImageID = findImage($db, $newImage)['id'];
+                editArticle($db, $newTitle, $existingSection, $newArticle, $newImageID);
                 echo '> > Article and Image Updated < <';
             }
         }
