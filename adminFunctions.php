@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DbConnect.php';
+$db = connectToDB();
 
 /**
  *The function checks passed a string variable through 3 modifications to sanitise

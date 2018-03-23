@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DbConnect.php';
+$db = connectToDB();
 
 function getArticleFromDB($db, $selectTitle) {
 

@@ -4,6 +4,8 @@ require_once 'DbConnect.php';
 require_once 'updateArticleDB.php';
 require_once 'uploadFileFunctions.php';
 
+$db = connectToDB();
+
 //In your "php.ini" file, search for the file_uploads directive, and set it to On:
 ini_set('file_uploads', 'On');
 

@@ -7,6 +7,8 @@ require_once 'dropdownDB.php';
 require_once 'getArticleImgDB.php';
 require_once 'updateArticleDB.php';
 
+$db = connectToDB();
+
 $dropdownKey = 'section';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
 $sectionDropdown = createDropdownfromDB($dropdownArray, $dropdownKey);

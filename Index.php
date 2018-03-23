@@ -5,6 +5,7 @@
 require_once 'DbConnect.php';
 require_once 'getArticleImgDB.php';
 require_once 'displayFunctions.php';
+$db = connectToDB();
 
 ?>
 

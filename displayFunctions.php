@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DbConnect.php';
+$db = connectToDB();
 
 function displayImgageAndText ($db, $selectTitle)
 {
