@@ -3,16 +3,19 @@
 /**
  *The function takes 2 parameters (database PDO and string) runs an SQL query to pull articles from DB
  *
- *@$db Database Class PDO
- *@$elementString string value
+ * @var $db Database Class PDO
+ * @var $elementString string value
  *
  *@return array of all records from the database that fit the SLQ statement
  */
 function getArticleTitles($db, $elementString) {
-    $querySection = $db->prepare("SELECT DISTINCT " . $elementString . " FROM `article`;");
-    $querySection->execute();
-    $resultArray = $querySection->fetchAll();
-    return $resultArray;
+    if ($elementString == 'title' || $elementString == 'section') {
+        $querySection = $db->prepare("SELECT DISTINCT ". $elementString . " FROM `article`;");
+        $querySection->execute();
+        $resultArray = $querySection->fetchAll();
+        return $resultArray;
+
+    }
 }
 
 /**
@@ -23,7 +26,7 @@ function getArticleTitles($db, $elementString) {
  *
  *@return string of html<options> which will be used for dropdown
  */
-function getValuesfromDB ($elements,$key) {
+function createDropdownfromDB ($elements,$key) {
     $resultString = '';
     foreach ($elements as $e) {
         $resultString .= '<option value="'.$e[$key].'">'.$e[$key].'</option>';

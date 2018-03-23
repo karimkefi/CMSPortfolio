@@ -9,7 +9,7 @@ require_once 'updateArticleDB.php';
 
 $dropdownKey = 'section';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
-$sectionDropdown = getValuesfromDB($dropdownArray, $dropdownKey);
+$sectionDropdown = createDropdownfromDB($dropdownArray, $dropdownKey);
 
 $newTitle = $_POST['newTitle'];
 $newArticle = $_POST['newArticleText'];

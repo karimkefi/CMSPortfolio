@@ -9,7 +9,7 @@ require_once 'updateArticleDB.php';
 
 $dropdownKey = 'title';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
-$titleDropdown = getValuesfromDB($dropdownArray, $dropdownKey);
+$titleDropdown = createDropdownfromDB($dropdownArray, $dropdownKey);
 
 $actionType = $_POST['updateArticle'];
 
@@ -17,13 +17,10 @@ $selectTitle = $_POST['selectedTitle'];
 $existingArticleID = $_POST['articleDB_id'];
 $existingSection = $_POST['articleDB_section'];
 $existingImageID = $_POST['articleDB_IMGid'];
-$existingImageName = $_POST['existingImageName'];
-$existingImageSource = $_POST['articleDB_IMGsource'];
 
 $newTitle = $_POST['newTitle'];
 $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
-//$newSection = $_POST['selectedSection'];
 
 switch ($actionType) {
     case 'Delete':
