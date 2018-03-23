@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Courier, sans-serif;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx HEADER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
+
+form h3, form input {
+    margin: 15px;
+}
+
+form label {
+    font-size: 1.4rem;
+    display: block;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxx End xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */

@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>CMS Home Page</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
     <link href="normalize.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="cmsMargin">
     <h1>Select the Content to edit...</h1>
-    <p></p>
-    <a href="cmsNewImageSelect.php">Add new image to Database</a>
-    <p></p>
-    <a href="cmsNewArticle.php">Add new articles: About & Portfolio</a>
-    <p></p>
-    <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a>
+    <div>
+        <a href="cmsNewImageSelect.php">Add new image to Database</a>
+    </div>
+    <div>
+        <a href="cmsNewArticle.php">Add new articles: About & Portfolio</a>
+    </div>
+    <div>
+        <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a>
+    </div>
 </body>
 </html>
 

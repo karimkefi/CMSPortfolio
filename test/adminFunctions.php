@@ -7,37 +7,6 @@ require('../adminFunctions.php');
 class StackTest extends TestCase
 {
 
-    // ------Test --- userCredentials --- function //
-
-    //success
-    public function test_userCredentials_Success()
-    {
-        $expected = true;
-        $inputA = 'kefi';
-        $inputB = 'A1';
-        $case = userCredentials($inputA, $inputB);
-        $this->assertEquals($case, $expected);
-    }
-    //failure
-    public function test_userCredentials_Failure()
-    {
-        $expected = false;
-        $inputA = 'kefi';
-        $inputB = 'A2';
-        $case = userCredentials($inputA, $inputB);
-        $this->assertEquals($case, $expected);
-    }
-    //Malformed
-    public function test_userCredentials_Malformed()
-    {
-        $inputA = ['aa', 12];
-        $inputB = 'A2';
-        $this->expectException(TypeError::class);
-        userCredentials($inputA, $inputB);
-    }
-
-
-
     // ------Test --- sanitiseString --- function //
 
     //success

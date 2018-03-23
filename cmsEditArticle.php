@@ -2,9 +2,7 @@
 
 <?php
 
-$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
+require_once 'DbConnect.php';
 require_once 'dropdownDB.php';
 require_once 'getArticleImgDB.php';
 require_once 'updateArticleDB.php';
@@ -19,7 +17,6 @@ $actionType = $_POST['updateArticle'];
 
 $existingArticleID = $_POST['articleDB_id'];
 $existingSection = $_POST['articleDB_section'];
-
 $existingImageID = $_POST['articleDB_IMGid'];
 $existingImageName = $_POST['existingImageName'];
 $existingImageSource = $_POST['articleDB_IMGsource'];
@@ -27,11 +24,11 @@ $existingImageSource = $_POST['articleDB_IMGsource'];
 $newTitle = $_POST['newTitle'];
 $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
-$newSection = $_POST['selectedSection'];
+//$newSection = $_POST['selectedSection'];
 
 switch ($actionType) {
     case 'Delete':
-        updateDeleteFlag($existingArticleID);
+        updateDeleteFlag($db, $existingArticleID);
         echo '> > Article has been deleted < <';
         break;
     case 'Edit':
@@ -39,10 +36,10 @@ switch ($actionType) {
             editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
             echo '> > Article Updated';
         } else {
-            if(empty(findImage($newImage))) {
+            if(empty(findImage($db, $newImage))) {
                 echo '> > You need to add to the Image to the DB first < <';
             } else {
-                $newImageID = findImage($newImage)['id'];
+                $newImageID = findImage($db, $newImage)['id'];
                 editArticle($newTitle, $existingSection, $newArticle, $newImageID);
                 echo '> > Article and Image Updated < <';
             }
@@ -58,7 +55,7 @@ switch ($actionType) {
 <head>
     <meta charset="UTF-8">
     <title>CMS Edit Article Page</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
     <link href="normalize.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -73,7 +70,6 @@ switch ($actionType) {
         </select>
         <input class="cmsMargin" type="submit" value="Pull from DB">
     </form>
-
     <div>
         <?php
         $articleDB_id = getArticleFromDB($db, $selectTitle)['id'];
@@ -87,7 +83,7 @@ switch ($actionType) {
         ?>
     </div>
 
-    <form method="post" action="updateArticleDB.php">
+    <form method="post" action="cmsEditArticle.php">
 
         <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)['id'];?>" >
         <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)['imageID'];?>" >
@@ -103,9 +99,9 @@ switch ($actionType) {
         <br>
 
         <h3>Article Text:</h3>
-        <textarea rows="8" cols="50" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)['articleText'];?></textarea><br>
+        <textarea rows="8" cols="80" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)['articleText'];?></textarea>
 
-        <h3>Image Name:</h3>
+        <h3>Image:</h3>
         <img class="articleBox" src="<?php echo getArticleFromDB($db, $selectTitle)['source'];?>"><br>
         <input type="file" name="newArticleImage"><br>
 
@@ -113,6 +109,9 @@ switch ($actionType) {
         <input class="cmsMargin" type="submit" name="updateArticle" value="Delete">
     </form>
 
+    <div>
+        <a href="cmsHomePage.php">Return to CMS Homepage</a>
+    </div>
 
 </body>
 </html>

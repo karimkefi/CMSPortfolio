@@ -1,23 +1,6 @@
 <?php
 
-/**
- *The function takes 2 values (Admin user and password) and checks if the pair match fixed values
- *
- *@$user string value
- *@$passWord string value
- *
- *@return boolean result to confirm correct details
- */
-function userCredentials (string $user, string $passWord):bool {
-    if ($user === 'kefi' && $passWord === 'A1') {
-        $_SESSION['userLoggedIn'] = true;
-        return true;
-    } else {
-        $_SESSION['userLoggedIn'] = false;
-        $_SESSION['invalidcombo'] = true;
-        return false;
-    }
-}
+require_once 'DbConnect.php';
 
 /**
  *The function checks passed a string variable through 3 modifications to sanitise
@@ -42,8 +25,7 @@ function sanitiseString (string $stringInput):string {
  *
  *@return boolean result to confirm passwords match
  */
-function pullAndComparePasswords ($enteredPassword, $enteredUName) {
-    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+function pullAndComparePasswords ($db, $enteredPassword, $enteredUName) {
 
     $query = $db->prepare("SELECT `herbs` FROM `mango` WHERE `fruits` = :uName;");
 
@@ -53,7 +35,6 @@ function pullAndComparePasswords ($enteredPassword, $enteredUName) {
 
     return password_verify($enteredPassword, $passwordDB[0]);
 };
-
 
 
 ?>

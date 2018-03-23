@@ -103,7 +103,7 @@ nav {
     border: 1px #000000;
     border-radius: 35%;
     list-style-type: none;
-    margin-top: 100px;
+    margin-top: 75px;
     margin-left: 20px;
     transition-timing-function: ease;
     transition: height 1s;
@@ -211,21 +211,6 @@ nav {
     width: 30%;
     height: 120px;
     list-style-type: none;
-}
-
-/* xxxxxxxxxxxxxxxxxxxxx HEADER xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
-
-.cmsMargin {
-    margin: 10px;
-}
-
-form h3, form input {
-    margin: 15px;
-}
-
-form label {
-    font-size: 1.4rem;
-    display: block;
 }
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx MEDIA QUERIES (MEDIUM) xxxxxxxxxxxxxxxxxxxxxxx  */

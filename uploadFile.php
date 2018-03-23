@@ -1,8 +1,7 @@
 <?php
 
 
-function addNewImage ($imageName, $alt, $source) {
-    $db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
+function addNewImage ($db, $imageName, $alt, $source) {
 
     $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`) 
                                       VALUES (:imageName, :alt, :source);");
@@ -76,6 +75,8 @@ if ($uploadOk == 0) {
 $newPhotoName = $_POST['newImageName'];
 $newPhotoAlt = $_POST['altImageDesciption'];
 $newPhotoSource = 'Img/'.$_FILES["fileToUpload"]["name"];
-addNewImage($newPhotoName,$newPhotoAlt,$newPhotoSource);
+addNewImage($db, $newPhotoName,$newPhotoAlt,$newPhotoSource);
+
+echo '<div><a href="cmsHomePage.php">Return to CMS Homepage</a></div>'
 
 ?>

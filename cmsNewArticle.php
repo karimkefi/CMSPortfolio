@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <?php
 
-$db = new PDO('mysql:host=127.0.0.1; dbname=karimPortfolioCMS', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-
+require_once 'DbConnect.php';
 require_once 'dropdownDB.php';
 require_once 'getArticleImgDB.php';
 require_once 'updateArticleDB.php';
@@ -20,20 +16,22 @@ $newArticle = $_POST['newArticleText'];
 $newImage = $_POST['newArticleImage'];
 $newSection = $_POST['selectedSection'];
 
-if(empty(findImage($newImage))) {
-    echo '> > Ensure you have added image to to the DB first < <';
+if(empty(findImage($db, $newImage))) {
+    echo '> > Ensure you have added image to the DB first !< <';
+    echo '<div><a href="cmsNewImageSelect.php">Add new image to Database</a></div>';
 }else {
-    $newImageID = findImage($newImage)[0]['id'];
+    $newImageID = findImage($db, $newImage)[0]['id'];
     editArticle($newTitle, $newSection, $newArticle, $newImageID);
     echo '> > New Article and Image Updated < <';
 }
 
 ?>
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CMS New Article Page</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
     <link href="normalize.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -42,20 +40,22 @@ if(empty(findImage($newImage))) {
 
 <form method="post" action="updateArticleDB.php">
 
-    <label for="title" >Title (DB only):</label><br>
-    <input id="title" type="text" name="newTitle"><br>
+    <label for="title" >Title (DB only):</label>
+    <input id="title" type="text" name="newTitle">
 
-    <label for="section">Section (DB only):</label><br>
-    <select id="section" name="selectedSection"><?php echo $sectionDropdown;?></select><br>
+    <label for="section">Section (DB only):</label>
+    <select id="section" name="selectedSection"><?php echo $sectionDropdown;?></select>
 
-    <label for="article">Article Text:</label><br>
+    <label for="article">Article Text:</label>
     <textarea id="article" rows="8" cols="50" name="newArticleText"></textarea>
 
-    <h3>Image Name:</h3><br>
+    <h3>Image Name:</h3>
     <input type="file" name="newArticleImage"><br>
     <input type="submit" name="updateArticle" value="Add">
 </form>
-
+<div>
+    <a href="cmsHomePage.php">Return to CMS Homepage</a>
+</div>
 
 </body>
 </html>
