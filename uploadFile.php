@@ -2,7 +2,7 @@
 
 require_once 'DbConnect.php';
 require_once 'updateArticleDB.php';
-
+require_once 'uploadFileFunctions.php';
 
 //In your "php.ini" file, search for the file_uploads directive, and set it to On:
 ini_set('file_uploads', 'On');
@@ -33,17 +33,18 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+$checkFileSize = checkFileSize ($_FILES["fileToUpload"]["size"]);
+if($checkFileSize == 0) {
     echo "Sorry, your file is too large.";
-    $uploadOk = 0;
 }
 
+
 // Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
+$checkFileType = checkFileType($imageFileType);
+if($checkFileSize == 0) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
 }
+
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {

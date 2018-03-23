@@ -6,7 +6,7 @@ require_once 'DbConnect.php';
  *The function checks passed a string variable through 3 modifications to sanitise
  * 1. Strips out slashes, 2.trim white spaces either side, 3. Escapes special characters.
  *
- *@$stringInput string variable passed into the function
+ *@var $stringInput string variable passed into the function
  *
  *@return sanitised string value
  */
@@ -20,8 +20,9 @@ function sanitiseString (string $stringInput):string {
 /**
  *The function retrieves the password from the database based off the userName, de-hashes DB password and compares to input password
  *
- *@$enteredPassword string value
- *@$enteredUName string value
+ *@var $db DB class used to query
+ *@var $enteredPassword string value, representing the user entered password
+ *@var $enteredUName string value, representing the user entered name
  *
  *@return boolean result to confirm passwords match
  */

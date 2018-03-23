@@ -22,8 +22,8 @@ function updateDeleteFlag ($db, $itemID) {
 /**
  *The function takes 2 parameters (database PDO and string) runs an SQL query to get image ID
  *
- *@$db Database Class PDO
- *@$imageName string is passed into SQL via bindparameter. This is the image name found in the image source
+ *@var $db Database Class PDO
+ *@var $imageName string is passed into SQL via bindparameter. This is the image name found in the image source
  *
  *@return array of image id which match the image name
  */
@@ -41,10 +41,10 @@ function findImage($db, $imageName) {
 /**
  *The function takes 2 parameters (database PDO and string) runs an SQL query to add record to image and return added id
  *
- *@$db Database Class PDO
- *@$imageName string is passed into SQL via bindparameter. This is the image name
- *@$alt string is passed into SQL via bindparameter. This is the image alt
- *@$source string is passed into SQL via bindparameter. This is the image relative path
+ *@var $db Database Class PDO
+ *@var $imageName string is passed into SQL via bindparameter. This is the image name
+ *@var $alt string is passed into SQL via bindparameter. This is the image alt
+ *@var $source string is passed into SQL via bindparameter. This is the image relative path
  *
  *@return last inserted image id from the database image table
  */
@@ -64,11 +64,11 @@ function addNewImage ($db, $imageName, $alt, $source) {
 /**
  *The function takes 2 parameters (database PDO and string) runs an SQL query to add record to article table
  *
- *@$db Database Class PDO
- *@$title string is passed into SQL via bindparameter. This is the article title
- *@$section string is passed into SQL via bindparameter. This is the image alt
- *@$articleText string is passed into SQL via bindparameter. This is the text in the article
- *@$imageID string is passed into SQL via bindparameter. This is the image ID
+ *@var $db Database Class PDO
+ *@var $title string is passed into SQL via bindparameter. This is the article title
+ *@var $section string is passed into SQL via bindparameter. This is the image alt
+ *@var $articleText string is passed into SQL via bindparameter. This is the text in the article
+ *@var $imageID string is passed into SQL via bindparameter. This is the image ID
  *
  *@return last inserted image id from the database image table
  */

@@ -26,7 +26,7 @@ function getArticleTitles($db, $elementString) {
  *
  *@return string of html<options> which will be used for dropdown
  */
-function createDropdownfromDB ($elements,$key) {
+function createDropdownfromDB (array $elements,$key):string {
     $resultString = '';
     foreach ($elements as $e) {
         $resultString .= '<option value="'.$e[$key].'">'.$e[$key].'</option>';
