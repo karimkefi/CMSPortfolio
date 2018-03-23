@@ -21,7 +21,7 @@ if(empty(findImage($db, $newImage))) {
     echo '<div><a href="cmsNewImageSelect.php">Add new image to Database</a></div>';
 }else {
     $newImageID = findImage($db, $newImage)[0]['id'];
-    editArticle($newTitle, $newSection, $newArticle, $newImageID);
+    editArticle($db, $newTitle, $newSection, $newArticle, $newImageID);
     echo '> > New Article and Image Updated < <';
 }
 
@@ -36,26 +36,27 @@ if(empty(findImage($db, $newImage))) {
 </head>
 
 <body>
-<h1>New Article Page</h1>
 
-<form method="post" action="updateArticleDB.php">
+    <h1>New Article Page</h1>
+    <form method="post" action="cmsNewArticle.php">
 
-    <label for="title" >Title (DB only):</label>
-    <input id="title" type="text" name="newTitle">
+        <label for="title" >Title (DB only):</label>
+        <input id="title" type="text" name="newTitle">
 
-    <label for="section">Section (DB only):</label>
-    <select id="section" name="selectedSection"><?php echo $sectionDropdown;?></select>
+        <label for="section">Section (DB only):</label>
+        <select id="section" name="selectedSection"><?php echo $sectionDropdown;?></select>
 
-    <label for="article">Article Text:</label>
-    <textarea id="article" rows="8" cols="50" name="newArticleText"></textarea>
+        <label for="article">Article Text:</label>
+        <textarea id="article" rows="8" cols="50" name="newArticleText"></textarea>
 
-    <h3>Image Name:</h3>
-    <input type="file" name="newArticleImage"><br>
-    <input type="submit" name="updateArticle" value="Add">
-</form>
-<div>
-    <a href="cmsHomePage.php">Return to CMS Homepage</a>
-</div>
+        <h3>Image Name:</h3>
+        <input type="file" name="newArticleImage"><br>
+        <input type="submit" name="updateArticle" value="Add">
+    </form>
+
+    <div>
+        <a href="cmsHomePage.php">Return to CMS Homepage</a>
+    </div>
 
 </body>
 </html>

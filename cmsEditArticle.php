@@ -11,10 +11,9 @@ $dropdownKey = 'title';
 $dropdownArray = getArticleTitles($db, $dropdownKey);
 $titleDropdown = getValuesfromDB($dropdownArray, $dropdownKey);
 
-$selectTitle = $_POST['selectedTitle'];
-
 $actionType = $_POST['updateArticle'];
 
+$selectTitle = $_POST['selectedTitle'];
 $existingArticleID = $_POST['articleDB_id'];
 $existingSection = $_POST['articleDB_section'];
 $existingImageID = $_POST['articleDB_IMGid'];
@@ -33,14 +32,14 @@ switch ($actionType) {
         break;
     case 'Edit':
         if (empty($newImage)) {
-            editArticle($newTitle, $existingSection, $newArticle, $existingImageID);
-            echo '> > Article Updated';
+            editArticle($db, $selectTitle, $existingSection, $newArticle, $existingImageID);
+            echo '> > Article Updated < <';
         } else {
             if(empty(findImage($db, $newImage))) {
                 echo '> > You need to add to the Image to the DB first < <';
             } else {
                 $newImageID = findImage($db, $newImage)['id'];
-                editArticle($newTitle, $existingSection, $newArticle, $newImageID);
+                editArticle($db, $newTitle, $existingSection, $newArticle, $newImageID);
                 echo '> > Article and Image Updated < <';
             }
         }
@@ -91,11 +90,11 @@ switch ($actionType) {
         <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
+        <input type="text" name="selectedTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
         <br>
 
         <h3>Section (DB only):</h3>
-        <input type="text" name="newTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
+        <input type="text" name="articleDB_section" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
         <br>
 
         <h3>Article Text:</h3>

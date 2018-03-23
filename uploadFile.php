@@ -1,19 +1,7 @@
 <?php
 
-
-function addNewImage ($db, $imageName, $alt, $source) {
-
-    $queryAdd = $db->prepare("REPLACE INTO `images` (`imageName`, `alt`, `source`) 
-                                      VALUES (:imageName, :alt, :source);");
-
-    $queryAdd->bindParam(':imageName', $imageName);
-    $queryAdd->bindParam(':alt', $alt);
-    $queryAdd->bindParam(':source', $source);
-
-    $queryAdd->execute();
-    $lastImageInsertId = $db->lastInsertId();
-    return $lastImageInsertId;
-}
+require_once 'DbConnect.php';
+require_once 'updateArticleDB.php';
 
 
 //In your "php.ini" file, search for the file_uploads directive, and set it to On:
@@ -78,5 +66,6 @@ $newPhotoSource = 'Img/'.$_FILES["fileToUpload"]["name"];
 addNewImage($db, $newPhotoName,$newPhotoAlt,$newPhotoSource);
 
 echo '<div><a href="cmsHomePage.php">Return to CMS Homepage</a></div>'
+
 
 ?>
