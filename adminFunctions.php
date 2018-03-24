@@ -1,17 +1,14 @@
 <?php
 
-require_once 'DbConnect.php';
-$db = connectToDB();
-
 /**
  *The function checks passed a string variable through 3 modifications to sanitise
  * 1. Strips out slashes, 2.trim white spaces either side, 3. Escapes special characters.
  *
  *@var $stringInput string variable passed into the function
  *
- *@return sanitised string value
+ *@return  string value
  */
-function sanitiseString (string $stringInput):string {
+function sanitiseString ($stringInput) {
     $temp1 = stripslashes($stringInput);
     $temp2 = trim($temp1);
     $temp3 = htmlspecialchars($temp2);
@@ -35,7 +32,7 @@ function pullAndComparePasswords ($db, $enteredPassword, $enteredUName) {
     $query->execute();
     $passwordDB = $query->fetch();
 
-    return password_verify($enteredPassword, $passwordDB[0]);
+    return password_verify($enteredPassword, $passwordDB['herbs']);
 };
 
 

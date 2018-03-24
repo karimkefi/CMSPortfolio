@@ -22,12 +22,15 @@
     </form>
 
 
-
+    <div>
     <?php
         if ($_SESSION['invalidcombo']){
             echo '> > Invalid email or password < <';
         }
-    ?>
+
+        ?>
+    </div>
+
 
     <a href="Index.php" >Return to Webpage</a>
 </body>
