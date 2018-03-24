@@ -70,37 +70,36 @@ switch ($actionType) {
     </form>
     <div>
         <?php
-        $articleDB_id = getArticleFromDB($db, $selectTitle)['id'];
+        $articleFromDB = getArticleFromDB($db, $selectTitle);
+        $articleDB_id = $articleFromDB['id'];
         echo 'article ID:'.$articleDB_id.' / ';
-
-        $articleDB_IMGid = getArticleFromDB($db, $selectTitle)['imageID'];
+        $articleDB_IMGid = $articleFromDB['imageID'];
         echo 'image ID:'.$articleDB_IMGid.' / ';
-
-        $articleDB_section = getArticleFromDB($db, $selectTitle)['section'];
-        echo 'Section:'.$articleDB_section;
+        $articleDB_section = $articleFromDB['section'];
+        echo 'Section :'.$articleDB_section.' / ';
         ?>
     </div>
 
     <form method="post" action="cmsEditArticle.php">
 
-        <input type="hidden" name="articleDB_id" value="<?php echo getArticleFromDB($db, $selectTitle)['id'];?>" >
-        <input type="hidden" name="articleDB_IMGid" value="<?php echo getArticleFromDB($db, $selectTitle)['imageID'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['source'];?>" >
-        <input type="hidden" name="articleDB_IMGsource" value="<?php echo getArticleFromDB($db, $selectTitle)['imageName'];?>" >
+        <input type="hidden" name="articleDB_id" value="<?php echo $articleFromDB['id'];?>" >
+        <input type="hidden" name="articleDB_IMGid" value="<?php echo $articleFromDB['imageID'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo $articleFromDB['source'];?>" >
+        <input type="hidden" name="articleDB_IMGsource" value="<?php echo $articleFromDB['imageName'];?>" >
 
         <h3>Title (DB only):</h3>
-        <input type="text" name="selectedTitle" value="<?php echo getArticleFromDB($db, $selectTitle)['title'];?>" >
+        <input type="text" name="selectedTitle" value="<?php echo $articleFromDB['title'];?>" >
         <br>
 
         <h3>Section (DB only):</h3>
-        <input type="text" name="articleDB_section" value="<?php echo getArticleFromDB($db, $selectTitle)['section'];?>" >
+        <input type="text" name="articleDB_section" value="<?php echo $articleFromDB['section'];?>" >
         <br>
 
         <h3>Article Text:</h3>
-        <textarea rows="8" cols="80" name="newArticleText"><?php echo getArticleFromDB($db, $selectTitle)['articleText'];?></textarea>
+        <textarea rows="8" cols="80" name="newArticleText"><?php echo $articleFromDB['articleText'];?></textarea>
 
         <h3>Image:</h3>
-        <img class="articleBox" src="<?php echo getArticleFromDB($db, $selectTitle)['source'];?>"><br>
+        <img class="articleBox" src="<?php echo $articleFromDB['source'];?>"><br>
         <input type="file" name="newArticleImage"><br>
 
         <input class="cmsMargin" type="submit" name="updateArticle" value="Edit">
