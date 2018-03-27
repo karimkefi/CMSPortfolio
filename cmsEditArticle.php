@@ -110,5 +110,24 @@ switch ($actionType) {
         <a href="cmsHomePage.php">Return to CMS Homepage</a>
     </div>
 
+    <section class"sideArticleSelect">
+        <h3>Select articles to be displayed</h3>
+
+        <h4>About Me:</h4>
+        <form method="post" action="cmsEditArticle.php">
+            Top:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            Middle:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            Bottom:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            <input class="cmsMargin" type="submit" value="Set About Me">
+        </form>
+        <h4>Portfolio:</h4>
+        <form method="post" action="cmsEditArticle.php">
+            Top:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            Middle:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            Bottom:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
+            <input class="cmsMargin" type="submit" value="Set Portfolio">
+        </form>
+    </section>
+
 </body>
 </html>
