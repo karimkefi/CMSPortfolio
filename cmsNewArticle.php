@@ -2,6 +2,11 @@
 
 <?php
 
+session_start();
+if (!$_SESSION['userLoggedIn']){
+    header("Location: adminLogin.php");
+}
+
 require_once 'DbConnect.php';
 require_once 'dropdownDB.php';
 require_once 'getArticleImgDB.php';
@@ -33,8 +38,8 @@ if(empty(findImage($db, $newImage))) {
 <head>
     <meta charset="UTF-8">
     <title>CMS New Article Page</title>
-    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
-    <link href="normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/cmsStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

@@ -1,11 +1,21 @@
+
+<?php
+session_start();
+
+if (!$_SESSION['userLoggedIn']){
+    header("Location: adminLogin.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>CMS Article Page</title>
-    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
-    <link href="normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/cmsStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

@@ -43,7 +43,7 @@ if($checkFileSize == 0) {
 
 // Allow certain file formats
 $checkFileType = checkFileType($imageFileType);
-if($checkFileSize == 0) {
+if($checkFileType == 0) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 }
 

@@ -14,8 +14,8 @@ $db = connectToDB();
 <head>
     <meta charset="UTF-8">
     <title>Karim Portfolio</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="backgroundImage homeImage" id="home">
@@ -23,22 +23,22 @@ $db = connectToDB();
         <ul class="sideNavList">
             <li>
                 <a href="#home">
-                    <img src="Img/iconHome.png" class="icon" alt="Home Icon">
+                    <img src="Img/icon/iconHome-36.png" class="icon" alt="Home Icon">
                 </a>
             </li>
             <li>
                 <a href="#aboutmeLocation">
-                    <img src="Img/iconAboutMe.png" alt="Face Icon">
+                    <img src="Img/icon/iconAboutMe-50.png" alt="Face Icon">
                 </a>
             </li>
             <li>
                 <a href="#portfolioLocation">
-                    <img src="Img/iconProjects.png" alt="Folders Icon">
+                    <img src="Img/icon/iconProjects-45.png" alt="Folders Icon">
                 </a>
             </li>
             <li>
                 <a href="#contactLocation">
-                    <img src="Img/iconsEmail.png" class="icon" alt="Email Icon">
+                    <img src="Img/icon/iconsEmail-32.png" class="icon" alt="Email Icon">
                 </a>
             </li>
             <li>
@@ -101,7 +101,7 @@ $db = connectToDB();
 <div class="backgroundImage portfolioImage" id="portfolioLocation">
     <section class="container">
         <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Mayden Logo'); ?>
+            <?php echo displayImgageAndText($db, 'JSGame'); ?>
         </div>
         <div class="articleBox">
             <?php echo displayImgageAndText($db, 'Pilot Webpage'); ?>

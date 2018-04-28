@@ -140,15 +140,15 @@ nav {
 /* xxxxxxxxxxxxxxxxxxxxx BACKGROUND IMAGES xxxxxxxxxxxxxxxxxxxxxxxxxxxx  */
 
 .homeImage {
-    background: url("Img/computerNcoffee.jpg");
+    background: url("../Img/computerNcoffee.jpg");
 }
 
 .aboutmeImage {
-    background: url("Img/skyBackground.jpg");
+    background: url("../Img/skyBackground.jpg");
 }
 
 .portfolioImage {
-    background: url("Img/leaves.jpg");
+    background: url("../Img/leaves.jpg");
 }
 
 .backgroundImage {
@@ -196,7 +196,7 @@ nav {
     height: 250px;
     margin: 0 auto;
     color: #FFFFFF;
-    background-color: #052F47;
+    background-color: #023436;
 }
 
 .footerBox {

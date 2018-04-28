@@ -1,12 +1,21 @@
-<!DOCTYPE html>
 
+<?php
+session_start();
+
+if (!$_SESSION['userLoggedIn']){
+    header("Location: adminLogin.php");
+}
+?>
+
+
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CMS Home Page</title>
-    <link href="cmsStyle.css" rel="stylesheet" type="text/css">
-    <link href="normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/cmsStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 <body class="cmsMargin">
     <h1>Select the Content to edit...</h1>
