@@ -5,7 +5,7 @@ $db = connectToDB();
 
 function getArticleFromDB($db, $selectTitle) {
 
-    $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title` 
+    $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title`, `alt` 
                                   FROM `article`
                                   INNER JOIN `images` ON `article`.`imageID` = `images`.`id`
                                   WHERE `title` = :selectedTitle AND `deleteFlag` = 0;");
