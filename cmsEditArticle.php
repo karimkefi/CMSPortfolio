@@ -60,6 +60,7 @@ switch ($actionType) {
     <meta charset="UTF-8">
     <title>CMS Edit Article Page</title>
     <link href="css/cmsStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -105,7 +106,9 @@ switch ($actionType) {
         <textarea rows="8" cols="80" name="newArticleText"><?php echo $articleFromDB['articleText'];?></textarea>
 
         <h3>Image:</h3>
-        <img class="articleBox" src="<?php echo $articleFromDB['source'];?>"><br>
+        <div class="articleBox">
+            <img class="articleBox" src="<?php echo $articleFromDB['source'];?>"><br>
+        </div>
         <input type="file" name="newArticleImage"><br>
 
         <input class="cmsMargin" type="submit" name="updateArticle" value="Edit">
@@ -115,25 +118,6 @@ switch ($actionType) {
     <div>
         <a href="cmsHomePage.php">Return to CMS Homepage</a>
     </div>
-
-    <section class"sideArticleSelect">
-        <h3>Select articles to be displayed</h3>
-
-        <h4>About Me:</h4>
-        <form method="post" action="cmsEditArticle.php">
-            Top:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            Middle:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            Bottom:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            <input class="cmsMargin" type="submit" value="Set About Me">
-        </form>
-        <h4>Portfolio:</h4>
-        <form method="post" action="cmsEditArticle.php">
-            Top:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            Middle:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            Bottom:<select name="selectedTitle"><?php echo $titleDropdown;?></select>
-            <input class="cmsMargin" type="submit" value="Set Portfolio">
-        </form>
-    </section>
 
 </body>
 </html>

@@ -15,6 +15,7 @@ $db = connectToDB();
     <meta charset="UTF-8">
     <title>Karim Portfolio</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/carouselStyle.css" rel="stylesheet" type="text/css">
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -80,15 +81,32 @@ $db = connectToDB();
 </div>
 <div class="backgroundImage aboutmeImage" id="aboutmeLocation">
     <section class="container">
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Where I am from'); ?>
-        </div>
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Where I am now'); ?>
-        </div>
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Interests'); ?>
-        </div>
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'Where I am from'); ?>
+<!--        </div>-->
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'Where I am now'); ?>
+<!--        </div>-->
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'Interests'); ?>
+<!--        </div>-->
+
+
+        //add about me carousel here...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </section>
 </div>
 <div>
@@ -137,4 +155,7 @@ $db = connectToDB();
     </ul>
 </footer>
 </body>
+
+<script src="js/carousel.js"></script>
+
 </html>

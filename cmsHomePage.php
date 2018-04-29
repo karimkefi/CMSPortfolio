@@ -10,7 +10,7 @@ if (!$_SESSION['userLoggedIn']){
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>CMS Home Page</title>
@@ -28,6 +28,12 @@ if (!$_SESSION['userLoggedIn']){
     <div>
         <a href="cmsEditArticle.php">Edit & Delete articles: About & Portfolio</a>
     </div>
+    <span></span>
+    <div>
+        <a href="cmsLogout.php">Logout</a>
+    </div>
+
+
 </body>
 </html>
 

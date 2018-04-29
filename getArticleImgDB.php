@@ -28,4 +28,17 @@ function getContactFromDB($db, $string) {
 }
 
 
+
+function getAllArticlesFromDB($db, $selectSection) {
+
+    $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title`, `alt` 
+                                  FROM `article`
+                                  INNER JOIN `images` ON `article`.`imageID` = `images`.`id`
+                                  WHERE `section` = :selectSection AND `deleteFlag` = 0;");
+
+    $querySelect->bindParam(':selectSection', $selectSection);
+    $querySelect->execute();
+    return $querySelect->fetchAll();
+}
+
 ?>
