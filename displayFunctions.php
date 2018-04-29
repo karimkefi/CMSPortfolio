@@ -1,7 +1,7 @@
 <?php
 
 require_once 'DbConnect.php';
-require_once 'getArticleImgDB.php';     //remove
+require_once 'getArticleImgDB.php';     //remove from this file as its being required when this file is being called.
 $db = connectToDB();
 
 function displayImgageAndText ($db, $selectTitle) {
@@ -49,7 +49,7 @@ function displayCarouselDot ($db, $selectSection) {
     $articlesArray = getAllArticlesFromDB($db, $selectSection);
 
     for ($i=1; $i<count($articlesArray)+1; $i++) {
-        $HTML .= "<span class=\"dot\" id=\"dot" . $i . "\" data-slideTo=\"" . $i . "\"></span>";
+        $HTML .= "<span class=\"dot\" id=\"dot" . $i . "\" data-slideto=\"" . $i . "\"></span>";
     }
 
     return $HTML;
@@ -57,7 +57,8 @@ function displayCarouselDot ($db, $selectSection) {
 
 
 /**
- *selects the articles from the DB based on Section requested to get the article titles and descriptions.
+ *Selects the articles from the DB based on Section requested to get the article titles and descriptions.
+ * The function checks to see if the request is for portfolio, in which case it will add gitHub and monitor icons.
  *
  *@param PDO $db Database PDO connection
  *@param string $selectSection This is the article section (About or Portfolio)
@@ -70,18 +71,13 @@ function displayCarouselCaption ($db, $selectSection) {
     $HTML = "";
     $i = 1;
 
-    if($selectSection == "Portfolio") {
-        $HTMLicons = "<img src=\"Img/iconGitHub-64.png\"><img src=\"Img/iconMonitor-64.png\">";
-    } else {
-        $HTMLicons = "";
-    }
-
     foreach ($articlesArray as $item) {
         $HTML .= "<div class=\"imgCaption hidden\" id=\"imgCaption" . $i . "\">" .
                 "<h3>" . $item['title'] ."</h3>" .
                 "<p>" . $item['articleText'] ."</p>" .
-                $HTMLicons .
-                "<div>";
+                "<img src=\"Img/iconGitHub-64.png\"><img src=\"Img/iconMonitor-64.png\">".
+                "</div>";
+
         $i++;
     }
 
@@ -89,8 +85,7 @@ function displayCarouselCaption ($db, $selectSection) {
 }
 
 
-var_dump(displayCarouselCaption($db, "Portfolio"));
-
+//var_dump(displayCarouselCaption($db, "Portfolio"));
 
 ?>
 

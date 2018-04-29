@@ -9,7 +9,6 @@ $db = connectToDB();
 
 ?>
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,13 +27,13 @@ $db = connectToDB();
                 </a>
             </li>
             <li>
-                <a href="#aboutmeLocation">
-                    <img src="Img/icon/iconAboutMe-50.png" alt="Face Icon">
+                <a href="#portfolioLocation">
+                    <img src="Img/icon/iconProjects-45.png" alt="Folders Icon">
                 </a>
             </li>
             <li>
-                <a href="#portfolioLocation">
-                    <img src="Img/icon/iconProjects-45.png" alt="Folders Icon">
+                <a href="#aboutmeLocation">
+                    <img src="Img/icon/iconAboutMe-50.png" alt="Face Icon">
                 </a>
             </li>
             <li>
@@ -79,56 +78,42 @@ $db = connectToDB();
             Above show the list of languages which I will be learning</p>
     </section>
 </div>
-<div class="backgroundImage aboutmeImage" id="aboutmeLocation">
-    <section class="container">
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'Where I am from'); ?>
-<!--        </div>-->
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'Where I am now'); ?>
-<!--        </div>-->
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'Interests'); ?>
-<!--        </div>-->
 
 
-        //add about me carousel here...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </section>
-</div>
-<div>
-    <section class="breatherContainer breatherText">
-        <h1>ABOUT ME</h1>
-        <p>Not quite my life story, nor all that I have done. This
-            focuses on my education and career jouney I have been on.</p>
-    </section>
-</div>
 <div class="backgroundImage portfolioImage" id="portfolioLocation">
     <section class="container">
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'JSGame'); ?>
+
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'JSGame'); ?>
+<!--        </div>-->
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'Pilot Webpage'); ?>
+<!--        </div>-->
+<!--        <div class="articleBox">-->
+<!--            --><?php //echo displayImgageAndText($db, 'Login Form'); ?>
+<!--        </div>-->
+
+        <div class="carousel">
+            <div id="carouselContainer" class="carouselContainer">
+
+                <?php echo displayCarouselImage($db, 'Portfolio'); ?>
+
+                <button class="arrow" id="leftArrow">&#10094</button>
+                <button class="arrow" id="rightArrow">&#10095</button>
+
+                <div class="dots">
+                    <?php echo displayCarouselDot($db, 'Portfolio'); ?>
+                </div>
+            </div>
+
+            <div class="captionContainer">
+                <?php echo displayCarouselCaption($db, 'Portfolio'); ?>
+            </div>
         </div>
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Pilot Webpage'); ?>
-        </div>
-        <div class="articleBox">
-            <?php echo displayImgageAndText($db, 'Login Form'); ?>
-        </div>
+
     </section>
 </div>
+
 <div>
     <section class="breatherContainer breatherText">
         <h1>SOME STUFF I HAVE BUILT</h1>
@@ -138,6 +123,51 @@ $db = connectToDB();
             portfolio section will change!</p>
     </section>
 </div>
+
+<div class="backgroundImage aboutmeImage" id="aboutmeLocation">
+    <section class="container">
+
+        <div class="articleBox">
+            <?php echo displayImgageAndText($db, 'Where I am from'); ?>
+        </div>
+        <div class="articleBox">
+            <?php echo displayImgageAndText($db, 'Where I am now'); ?>
+        </div>
+        <div class="articleBox">
+            <?php echo displayImgageAndText($db, 'Interests'); ?>
+        </div>
+
+        <!---->
+        <!--        <div class="carousel">-->
+        <!--            <div id="carouselContainer" class="carouselContainer">-->
+        <!---->
+        <!--                --><?php //echo displayCarouselImage($db, 'About'); ?>
+        <!---->
+        <!--                <button class="arrow" id="leftArrow">&#10094</button>-->
+        <!--                <button class="arrow" id="rightArrow">&#10095</button>-->
+        <!---->
+        <!--                <div class="dots">-->
+        <!--                    --><?php //echo displayCarouselDot($db, 'About'); ?>
+        <!--                </div>-->
+        <!--            </div>-->
+        <!---->
+        <!--            <div class="captionContainer">-->
+        <!--                --><?php //echo displayCarouselCaption($db, 'About'); ?>
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+    </section>
+</div>
+
+<div>
+    <section class="breatherContainer breatherText">
+        <h1>ABOUT ME</h1>
+        <p>Not quite my life story, nor all that I have done. This
+            focuses on my education and career jouney I have been on.</p>
+    </section>
+</div>
+
 <footer class="footer" id="contactLocation">
     <ul class="container bottomContainer">
         <li class="footerBox footerIcon">
@@ -154,6 +184,7 @@ $db = connectToDB();
         </li>
     </ul>
 </footer>
+
 </body>
 
 <script src="js/carousel.js"></script>

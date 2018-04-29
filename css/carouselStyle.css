@@ -1,0 +1,229 @@
+* {
+    font-family: Courier;
+}
+
+.header{
+    width: 800px;
+    height: 100px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2.5rem;
+}
+
+.carousel{
+    width: max-content;
+    height: max-content;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+}
+
+.carouselContainer {
+    width: 600px;
+    height: 400px;
+    margin: 25px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+}
+
+.carouselContainer img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+/* * * * * * * * CSS form Sliding images * * * * * * * * */
+
+.slideIN-RtoL{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    animation-name: slideIN-RtoL;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    z-index: 5;
+}
+
+.slideOut-RtoL{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    animation-name: slideOut-RtoL;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    z-index: 3;
+}
+
+.slideIN-LtoR {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    animation-name: slideIN-LtoR;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    z-index: 5;
+}
+
+.slideOut-LtoR {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    animation-name: slideOut-LtoR;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    z-index: 3;
+}
+
+.hidden{
+    display: none;
+}
+
+/* * * * * * * * CSS form Sliding images * * * * * * * * */
+
+.captionContainer {
+    width: 250px;
+    height: 400px;
+    margin: 25px;
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+
+
+.imgCaption p {
+    font-size: 0.8rem;
+}
+
+.imgCaption {
+    position: relative;
+    margin: 0 auto;
+    background-color:rgba(211, 211, 211, 0.5);
+    height: 100%;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.caption-In{
+    animation-name: caption-In;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    z-index: 5;
+}
+
+/* * * * * * * * CSS form Arrows * * * * * * * * */
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 45px;
+    font-size: 1.5rem;
+    border: 1px solid #2d5c54;
+    border-radius: 5px;
+    opacity: 0.5;
+    color: #2d5c54;
+    z-index: 10;
+}
+
+#rightArrow {
+    position: relative;
+    float: right;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+/* * * * * * * * CSS form Arrows * * * * * * * * */
+
+
+.dots {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    z-index: 15;
+    text-align: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #58bbad;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border: 1px solid #2d5c54;
+}
+
+.active, .dot:hover {
+    background-color: #1c4b3b;
+}
+
+
+/* * * * * * * * Keyframes for Sliding images * * * * * * * * */
+
+@keyframes slideIN-RtoL {
+    0%      { transform: translateX(100%);  }
+    100%    { transform: translateX(0%);    }
+}
+
+@keyframes slideOut-RtoL {
+    0%      { transform: translateX(0%);    }
+    100%    { transform: translateX(-100%); }
+}
+
+@keyframes slideOut-LtoR {
+    0%      { transform: translateX(0%);    }
+    100%    { transform: translateX(100%);  }
+}
+
+@keyframes slideIN-LtoR {
+    0%      { transform: translateX(-100%); }
+    100%    { transform: translateX(0%);    }
+}
+
+
+/* * * * * * * * Keyframes for Image Caption * * * * * * * * */
+
+@keyframes caption-In {
+    0%      { opacity: 0; }
+    100%    { opacity: 1; }
+}
+
+
+/* * * * * * * * media queries * * * * * * * * */
+
+@media screen and (max-width: 1100px) {
+
+    .header{
+        width: 90vw;
+        height: 11.25vw;
+        font-size: 1.5rem;
+    }
+
+    .carouselContainer {
+        width: 90vw;
+        height: 50vw;
+    }
+
+    .captionContainer {
+        clear: both;
+        width: 90vw;
+        height: 200px;
+    }
+
+    .imgCaption p {
+        font-size: 0.7rem;
+    }
+
+}
+

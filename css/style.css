@@ -17,12 +17,12 @@ body {
     height: 650px;
     width: 85%;
     overflow: auto;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .topContainer {
     margin-top: 100px;
-    margin-right: 75px;
+    /*margin-right: 75px;*/
 }
 
 .bottomContainer {
@@ -112,7 +112,7 @@ nav {
 .sideNavList li:hover {
     cursor: pointer;
     background-color: #12AAFF;
-    height: 100px;
+    /*height: 100px;*/
 }
 
 .icon {
