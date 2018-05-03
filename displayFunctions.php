@@ -75,7 +75,12 @@ function displayCarouselCaption ($db, $selectSection) {
         $HTML .= "<div class=\"imgCaption hidden\" id=\"imgCaption" . $i . "\">" .
                 "<h3>" . $item['title'] ."</h3>" .
                 "<p>" . $item['articleText'] ."</p>" .
-                "<img src=\"Img/iconGitHub-64.png\"><img src=\"Img/iconMonitor-64.png\">".
+                "<a href=\"" . $item['gitHubLink'] . "\"> " .
+                    "<img src=\"Img/iconGitHub-64.png\">".
+                "</a>" .
+                "<a href=\"" . $item['webLink'] . "\"> " .
+                    "<img src=\"Img/iconMonitor-64.png\">".
+                "</a>" .
                 "</div>";
 
         $i++;
@@ -84,8 +89,8 @@ function displayCarouselCaption ($db, $selectSection) {
     return $HTML;
 }
 
-
 //var_dump(displayCarouselCaption($db, "Portfolio"));
+
 
 ?>
 

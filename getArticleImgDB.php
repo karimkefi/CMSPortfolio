@@ -31,7 +31,7 @@ function getContactFromDB($db, $string) {
 
 function getAllArticlesFromDB($db, $selectSection) {
 
-    $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title`, `alt` 
+    $querySelect = $db->prepare("SELECT `article`.`id`, `articleText`, `imageName`, `source`, `imageID`, `section`, `title`, `alt`, `gitHubLink` , `webLink` 
                                   FROM `article`
                                   INNER JOIN `images` ON `article`.`imageID` = `images`.`id`
                                   WHERE `section` = :selectSection AND `deleteFlag` = 0;");

@@ -52,19 +52,19 @@ $db = connectToDB();
     <section class="container topContainer">
         <div class="codingLanguages">
             <div class="codingIcon5 codingIcon3">
-                <img src="Img/icons-html5-96.png" alt="HTML5 Icon">
+                <img src="Img/languages/icons-html5-96.png" alt="HTML5 Icon">
             </div>
             <div class="codingIcon5 codingIcon3">
-                <img src="Img/icons-css3-96.png" alt="CSS3 Icon">
+                <img src="Img/languages/icons-css3-96.png" alt="CSS3 Icon">
             </div>
             <div class="codingIcon5 codingIcon3">
-                <img src="Img/icons-php-red-100.png" alt="PHP Icon">
+                <img src="Img/languages/icons-php-red-100.png" alt="PHP Icon">
             </div>
             <div class="codingIcon5 codingIcon3">
-                <img src="Img/icons-sql-red-100.png" alt="SQL Icon">
+                <img src="Img/languages/icons-mysql-blue-100.png" alt="SQL Icon">
             </div>
             <div class="codingIcon5 codingIcon3">
-                <img src="Img/icon-official-javascript-100.png" alt="JS Icon">
+                <img src="Img/languages/icon-official-javascript-100.png" alt="JS Icon">
             </div>
         </div>
     </section>
@@ -79,20 +79,8 @@ $db = connectToDB();
     </section>
 </div>
 
-
 <div class="backgroundImage portfolioImage" id="portfolioLocation">
     <section class="container">
-
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'JSGame'); ?>
-<!--        </div>-->
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'Pilot Webpage'); ?>
-<!--        </div>-->
-<!--        <div class="articleBox">-->
-<!--            --><?php //echo displayImgageAndText($db, 'Login Form'); ?>
-<!--        </div>-->
-
         <div class="carousel">
             <div id="carouselContainer" class="carouselContainer">
 
@@ -104,13 +92,12 @@ $db = connectToDB();
                 <div class="dots">
                     <?php echo displayCarouselDot($db, 'Portfolio'); ?>
                 </div>
-            </div>
 
+            </div>
             <div class="captionContainer">
                 <?php echo displayCarouselCaption($db, 'Portfolio'); ?>
             </div>
         </div>
-
     </section>
 </div>
 
@@ -126,7 +113,6 @@ $db = connectToDB();
 
 <div class="backgroundImage aboutmeImage" id="aboutmeLocation">
     <section class="container">
-
         <div class="articleBox">
             <?php echo displayImgageAndText($db, 'Where I am from'); ?>
         </div>
@@ -136,27 +122,6 @@ $db = connectToDB();
         <div class="articleBox">
             <?php echo displayImgageAndText($db, 'Interests'); ?>
         </div>
-
-        <!---->
-        <!--        <div class="carousel">-->
-        <!--            <div id="carouselContainer" class="carouselContainer">-->
-        <!---->
-        <!--                --><?php //echo displayCarouselImage($db, 'About'); ?>
-        <!---->
-        <!--                <button class="arrow" id="leftArrow">&#10094</button>-->
-        <!--                <button class="arrow" id="rightArrow">&#10095</button>-->
-        <!---->
-        <!--                <div class="dots">-->
-        <!--                    --><?php //echo displayCarouselDot($db, 'About'); ?>
-        <!--                </div>-->
-        <!--            </div>-->
-        <!---->
-        <!--            <div class="captionContainer">-->
-        <!--                --><?php //echo displayCarouselCaption($db, 'About'); ?>
-        <!--            </div>-->
-        <!--        </div>-->
-
-
     </section>
 </div>
 
